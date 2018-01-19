@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+
+	<link rel="stylesheet" href="{$basePath}/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/style.css">
+
+</head>
+
+<body>
+
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">
+		<div class="alert alert-primary" role="alert">{$flash->message}</div>
+	</div>
+	<div class="container-fluid main-header-container">
+		<div class="row">
+			<div class="col">
+                <a n:href="Homepage:" class="main-header">
+                    <h1>Vývoj webových aplikací</h1>
+                    <h2>Test 1 - blog</h2>
+                </a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col py-2 text-center">
+				<a n:href="Homepage:default" class="btn btn-light">Homepage</a>
+				<a n:href="Article:add" class="btn btn-light">Přidat článek</a>
+			</div>
+		</div>
+	</div>
+
+    {include content}
+
+	<div class="container-fluid main-footer-container">
+		<div class="row">
+			<div class="col py-4">
+				<footer class="main-footer text-center">
+					<span>ssps &copy; 2018</span>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	{block scripts}
+		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="{$basePath}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	{/block}
+</body>
+</html>

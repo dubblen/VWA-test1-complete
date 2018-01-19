@@ -1,0 +1,26 @@
+.main-header-container {
+	background-color: #1aa7ff;
+	color: #FFF;
+}
+.main-footer-container {
+	background-color: #3f3f3f;
+	color: #FFF;
+}
+.main-header {
+	display: block;
+	color: #FFF;
+	padding: 30px 0;
+}
+.main-header:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+.main-header h1 {
+	text-align: center;
+}
+.main-header h2 {
+	text-align: center;
+}
+.homepage-pagination {
+	display: inline-block;
+}

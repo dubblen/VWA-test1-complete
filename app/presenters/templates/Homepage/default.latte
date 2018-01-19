@@ -1,0 +1,50 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<div class="container">
+
+
+            {foreach $articles as $article}
+                <div class="row py-4">
+
+                    <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{$article->title}</h5>
+                                    <p>{$article->content|stripHtml|truncate:160}</p>
+                                    <a n:href="Article:default $article->id" class="btn btn-primary">Zobrazit celý článek</a>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            {/foreach}
+
+    <div class="row">
+
+        <div class="col text-center">
+
+            <nav class="homepage-pagination">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" n:href="Homepage:default $page - 1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    {for $i = 1; $i <= $paginator->getPageCount(); $i++}
+                        <li class="page-item"><a class="page-link" n:href="Homepage:default $i">{$i}</a></li>
+                    {/for}
+                    <li class="page-item">
+                        <a class="page-link" n:href="Homepage:default $page + 1" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+</div>
